@@ -10,8 +10,6 @@
     :root{
       --max: 1080px;
       --bg: #0b1220;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.08);
       --border: rgba(255,255,255,.10);
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.70);
@@ -39,64 +37,36 @@
       backdrop-filter: blur(16px) saturate(150%);
       border-bottom: 1px solid rgba(255,255,255,.06);
     }
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;gap:16px;
-    }
-    .brand{
-      display:flex;align-items:center;gap:10px;
-      padding:8px 10px;border-radius:14px;
-    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:14px}
     .brand img{
       width:34px;height:34px;border-radius:10px;
       background: rgba(255,255,255,.12);
       border:1px solid rgba(255,255,255,.12);
-      object-fit: cover;
-      display:block;
+      object-fit: cover;display:block;
     }
     .links{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-    .link{
-      padding:10px 12px;border-radius:14px;
-      color: var(--muted);
-    }
+    .link{padding:10px 12px;border-radius:14px;color: var(--muted)}
     .link:hover{background: rgba(255,255,255,.06); color: var(--text);}
-    .btn{
-      padding:10px 14px;border-radius:14px;
-      background: rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.14);
-    }
+    .btn{padding:10px 14px;border-radius:14px;background: rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14)}
     .btn:hover{background: rgba(255,255,255,.16);}
 
-    /* HERO */
-    .hero{padding:54px 0 22px}
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    .heroCard{
+    /* Base glass card */
+    .card{
       border:1px solid var(--border);
       background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
       position:relative;
-      padding:34px;
-      min-height: 320px;
     }
-    .kicker{
-      font-size:12px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color: rgba(255,255,255,.70);
-      margin-bottom:12px;
-    }
-    h1{
-      margin:0;
-      font-size: 52px;
-      line-height: 1.05;
-      font-weight: 800;
-    }
+
+    /* HERO */
+    .hero{padding:54px 0 22px}
+    .heroGrid{display:grid;grid-template-columns: 1.15fr .85fr;gap:18px;align-items:stretch}
+    .heroCard{padding:34px;min-height: 320px}
+    .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color: rgba(255,255,255,.70);margin-bottom:12px}
+    h1{margin:0;font-size: 52px;line-height: 1.05;font-weight: 800}
     .ctaRow{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
     .ctaPrimary{
       display:inline-flex;align-items:center;gap:10px;
@@ -114,19 +84,15 @@
     }
     .ctaGhost:hover{background: rgba(255,255,255,.12); color: var(--text);}
 
-    /* Right visual panel */
     .visualCard{
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.06);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
       min-height: 320px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
+      display:flex;align-items:center;justify-content:center;
+      padding:18px;
+      background:
+        radial-gradient(500px 260px at 30% 20%, rgba(64,118,255,.22), transparent 55%),
+        radial-gradient(460px 260px at 80% 40%, rgba(140,62,255,.20), transparent 55%),
+        radial-gradient(520px 260px at 60% 90%, rgba(255,77,152,.14), transparent 55%),
+        rgba(255,255,255,.04);
     }
     .visualCard img{
       width:100%;
@@ -134,11 +100,25 @@
       object-fit:cover;
       border-radius: 18px;
       border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.08);
+      background: rgba(255,255,255,.06);
+      display:block;
     }
 
-    /* Sections */
+    /* WHO */
     section{padding:22px 0}
+    .infoCard{padding: 22px;display:grid;gap:10px}
+    .infoTop{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .pill{
+      font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+      color: rgba(255,255,255,.70);
+      background: rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.10);
+      padding:8px 10px;border-radius: 999px;
+    }
+    .infoHeadline{font-size:34px;font-weight:850;line-height:1.15}
+    .infoText{color: var(--muted);font-size: 16px;line-height: 1.65;max-width: 75ch}
+
+    /* PRODUCTS */
     .sectionTitle{
       font-size: 42px;
       font-weight: 850;
@@ -146,93 +126,120 @@
       text-align:center;
     }
 
-    /* WHO WE ARE card */
-    .infoCard{
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.06);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      display:grid;
-      gap:10px;
-    }
-    .infoTop{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
-    }
-    .pill{
-      font-size:12px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color: rgba(255,255,255,.70);
-      background: rgba(255,255,255,.07);
-      border:1px solid rgba(255,255,255,.10);
-      padding:8px 10px;
-      border-radius: 999px;
-    }
-    .infoText{
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.65;
-      max-width: 75ch;
-    }
-
-    /* PRODUCTS carousel */
     .carouselWrap{
       position:relative;
       margin-top: 14px;
+      padding: 0 54px; /* oklar içeride */
     }
     .carousel{
-      display:flex;
-      gap:16px;
+      display:flex;gap:16px;
       overflow-x:auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-      padding: 10px 8px 18px;
+      padding: 10px 8px 24px;
       scrollbar-width: none;
     }
     .carousel::-webkit-scrollbar{display:none}
+
+    /* Product card hover + parallax base */
     .productCard{
       scroll-snap-align: center;
       flex: 0 0 min(520px, 86vw);
-      border:1px solid var(--border);
+      border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.06);
       border-radius: 26px;
       box-shadow: var(--shadow);
       overflow:hidden;
-    }
-    .productMedia{
-      height: 320px;
-      background: rgba(255,255,255,.08);
-      border-bottom: 1px solid rgba(255,255,255,.08);
       position:relative;
+
+      transform-style: preserve-3d;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
+      will-change: transform;
+    }
+    .productCard::before{
+      content:"";
+      position:absolute;inset:-1px;
+      background: radial-gradient(600px 220px at var(--mx, 30%) var(--my, 20%), rgba(64,118,255,.20), transparent 55%);
+      opacity: 0;
+      transition: opacity 220ms ease;
+      pointer-events:none;
+    }
+    .productCard:hover{
+      transform: translateY(-8px) scale(1.01);
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 22px 70px rgba(0,0,0,.55);
+      background: rgba(255,255,255,.075);
+    }
+    .productCard:hover::before{opacity:1}
+
+    .productMedia{
+      height: 340px;
+      position:relative;
+      background:
+        radial-gradient(520px 260px at 30% 20%, rgba(64,118,255,.18), transparent 55%),
+        radial-gradient(520px 260px at 80% 30%, rgba(140,62,255,.16), transparent 55%),
+        radial-gradient(520px 260px at 60% 90%, rgba(255,77,152,.12), transparent 55%),
+        rgba(255,255,255,.04);
+      overflow:hidden;
     }
     .productMedia img{
-      width:100%;height:100%;object-fit:cover;display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform: translate3d(0,0,0) scale(1.02);
+      transition: transform 220ms ease;
+      will-change: transform;
     }
+    .productCard:hover .productMedia img{
+      transform: translate3d(var(--px, 0px), var(--py, 0px), 0) scale(1.06);
+    }
+    .productMedia::after{
+      content:"";
+      position:absolute;left:0;right:0;bottom:0;height:130px;
+      background: linear-gradient(to bottom, rgba(11,18,32,0), rgba(11,18,32,.60));
+      pointer-events:none;
+    }
+
     .productBody{
-      padding: 18px 18px 20px;
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding: 18px 18px 18px;
+      display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
+      background: rgba(11,18,32,.35);
+      border-top: 1px solid rgba(255,255,255,.06);
     }
-    .productName{
-      font-size: 24px;
-      font-weight: 800;
-      margin:0;
+    .productName{font-size: 24px;font-weight: 800;margin:0}
+    .productMeta{margin-top:4px;color: var(--muted);font-size: 14px}
+
+    .badgesRow{
+      margin-top: 10px;
+      display:flex;gap:8px;flex-wrap:wrap;
     }
-    .productMeta{
-      margin-top:4px;
-      color: var(--muted);
-      font-size: 14px;
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border-radius:999px;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.82);
+      font-size: 12px;
+      letter-spacing: .02em;
     }
+    .dot{
+      width:6px;height:6px;border-radius:99px;
+      background: rgba(255,255,255,.55);
+      display:inline-block;
+    }
+
     .openIcon{
-      width:40px;height:40px;border-radius:14px;
+      width:42px;height:42px;border-radius:14px;
       display:grid;place-items:center;
       background: rgba(255,255,255,.08);
       border:1px solid rgba(255,255,255,.12);
+      transition: transform 180ms ease, background 180ms ease;
     }
-    .openIcon:hover{background: rgba(255,255,255,.12);}
+    .openIcon:hover{background: rgba(255,255,255,.12); transform: translateY(-1px);}
 
     .navBtn{
-      position:absolute;top: 44%;
+      position:absolute;top:50%;
       transform: translateY(-50%);
       width:44px;height:44px;border-radius:16px;
       border:1px solid rgba(255,255,255,.14);
@@ -242,28 +249,21 @@
       display:grid;place-items:center;
       cursor:pointer;
       user-select:none;
+      z-index: 5;
     }
     .navBtn:hover{background: rgba(11,18,32,.75);}
-    .navPrev{left:-4px}
-    .navNext{right:-4px}
+    .navPrev{left: 10px}
+    .navNext{right: 10px}
 
     /* CONTACT + FOOTER */
     .contactCard{
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.06);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
       padding: 22px;
       display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
     }
     .contactLeft{display:grid;gap:6px}
     .contactTitle{font-size:18px;font-weight:800;margin:0}
     .contactText{color:var(--muted);margin:0}
-    footer{
-      margin-top: 34px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      background: rgba(0,0,0,.10);
-    }
+    footer{margin-top: 34px;border-top: 1px solid rgba(255,255,255,.08);background: rgba(0,0,0,.10)}
     .footerRow{
       display:flex;align-items:center;justify-content:space-between;gap:10px;
       color: var(--muted);
@@ -275,9 +275,15 @@
       .heroGrid{grid-template-columns:1fr}
       h1{font-size: 44px}
       .heroCard,.visualCard{min-height: 280px}
-      .productMedia{height: 280px}
+      .productMedia{height: 300px}
+      .carouselWrap{padding: 0 16px;}
       .navPrev{left: 6px}
       .navNext{right: 6px}
+    }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      .productCard, .productMedia img, .openIcon { transition:none !important; }
     }
   </style>
 </head>
@@ -287,6 +293,7 @@
     <div class="wrap">
       <div class="nav">
         <a class="brand" href="#top" aria-label="Tafix home">
+          <!-- root dosya: logo.png -->
           <img src="logo.png" alt="Tafix logo" onerror="this.style.display='none'" />
         </a>
 
@@ -300,45 +307,37 @@
   </header>
 
   <main id="top" class="wrap">
-    <!-- HERO -->
     <div class="hero">
       <div class="heroGrid">
-        <div class="heroCard">
-          <div class="kicker">Tafix</div>
-          <h1>We build simple, useful apps.</h1>
-
+        <div class="card heroCard">
+          <div class="kicker">TAFIX</div>
+          <h1>We build simple,<br/>useful apps.</h1>
           <div class="ctaRow">
             <a class="ctaPrimary" href="#products">Explore products →</a>
             <a class="ctaGhost" href="#who">About us</a>
           </div>
         </div>
 
-        <!-- Sağdaki görsel alanı (isteğe bağlı) -->
-        <div class="visualCard" aria-label="Hero visual">
-          <img src="hero.png" alt="" onerror="this.style.display='none'" />
-          <!-- Görsel yoksa boş panel kalsın -->
+        <div class="card visualCard" aria-label="Hero visual">
+          <!-- root dosya: hero.png (yoksa gradient placeholder kalır) -->
+          <img src="hero.png" alt="" onerror="this.remove()" />
         </div>
       </div>
     </div>
 
-    <!-- WHO WE ARE -->
     <section id="who">
-      <div class="infoCard">
+      <div class="card infoCard">
         <div class="infoTop">
           <span class="pill">WHO WE ARE</span>
           <span class="pill" style="opacity:.85">App studio</span>
         </div>
-        <div style="font-size:34px;font-weight:850;line-height:1.15;">
-          We are an app studio that builds amazing products.
-        </div>
+        <div class="infoHeadline">We are an app studio that builds amazing products.</div>
         <div class="infoText">
           We focus on clean UX, reliability, and practical features that people use every day.
-          We ship fast, iterate often, and keep our products lightweight.
         </div>
       </div>
     </section>
 
-    <!-- OUR PRODUCTS -->
     <section id="products">
       <div class="sectionTitle">Our Products.</div>
 
@@ -347,59 +346,52 @@
         <div class="navBtn navNext" id="nextBtn" aria-label="Next">›</div>
 
         <div class="carousel" id="carousel">
-          <!-- Kart 1 -->
-          <article class="productCard">
+          <!-- Product 1 -->
+          <article class="productCard" data-parallax>
             <div class="productMedia">
-              <img src="product-bodytemp.png" alt="Body Temperature Tracker screenshot" onerror="this.style.display='none'"/>
+              <!-- root dosya: product-bodytemp.png -->
+              <img src="product-bodytemp.png" alt="Body Temperature Tracker screenshot" onerror="this.remove()"/>
             </div>
             <div class="productBody">
               <div>
                 <h3 class="productName">Body Temperature Tracker</h3>
                 <div class="productMeta">Track temperature, symptoms, notes & export PDFs.</div>
+
+                <div class="badgesRow">
+                  <span class="badge"><span class="dot"></span> iOS</span>
+                  <span class="badge"><span class="dot"></span> Android</span>
+                </div>
               </div>
-              <a class="openIcon" href="#" title="Open" aria-label="Open product link">
-                ↗
-              </a>
+
+              <a class="openIcon" href="#" title="Open" aria-label="Open product link">↗</a>
             </div>
           </article>
 
-          <!-- Kart 2 -->
-          <article class="productCard">
+          <!-- Product 2 -->
+          <article class="productCard" data-parallax>
             <div class="productMedia">
-              <img src="product-caffeine.png" alt="Caffeine Tracker screenshot" onerror="this.style.display='none'"/>
+              <!-- root dosya: product-caffeine.png -->
+              <img src="product-caffeine.png" alt="Caffeine Tracker screenshot" onerror="this.remove()"/>
             </div>
             <div class="productBody">
               <div>
                 <h3 class="productName">Caffeine Tracker</h3>
                 <div class="productMeta">Log drinks and visualize caffeine intake.</div>
-              </div>
-              <a class="openIcon" href="#" title="Open" aria-label="Open product link">
-                ↗
-              </a>
-            </div>
-          </article>
 
-          <article class="productCard">
-            <div class="productMedia">
-              <img src="product-placeholder.png" alt="Product screenshot" onerror="this.style.display='none'"/>
-            </div>
-            <div class="productBody">
-              <div>
-                <h3 class="productName">More coming soon</h3>
-                <div class="productMeta">We’re always building new experiences.</div>
+                <div class="badgesRow">
+                  <span class="badge"><span class="dot"></span> iOS</span>
+                </div>
               </div>
-              <a class="openIcon" href="#" title="Open" aria-label="Open product link">
-                ↗
-              </a>
+
+              <a class="openIcon" href="#" title="Open" aria-label="Open product link">↗</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
-      <div class="contactCard">
+      <div class="card contactCard">
         <div class="contactLeft">
           <p class="contactTitle">Contact us</p>
           <p class="contactText">Support & business inquiries</p>
@@ -408,7 +400,6 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <div class="wrap">
         <div class="footerRow">
@@ -420,7 +411,6 @@
   </main>
 
   <script>
-    // year
     document.getElementById("y").textContent = new Date().getFullYear();
 
     // Carousel controls
@@ -434,13 +424,11 @@
       const amount = (card ? card.getBoundingClientRect().width : 520) + gap;
       carousel.scrollBy({ left: direction * amount, behavior: "smooth" });
     }
-
     nextBtn.addEventListener("click", () => scrollByCard(1));
     prevBtn.addEventListener("click", () => scrollByCard(-1));
 
-    // Drag to scroll (mouse)
+    // Drag to scroll
     let isDown = false, startX = 0, scrollLeft = 0;
-
     carousel.addEventListener("mousedown", (e) => {
       isDown = true;
       carousel.style.cursor = "grabbing";
@@ -462,8 +450,56 @@
       const walk = (x - startX) * 1.2;
       carousel.scrollLeft = scrollLeft - walk;
     });
-
     carousel.style.cursor = "grab";
+
+    // Hover parallax (very light)
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+
+    if (!prefersReduced) {
+      document.querySelectorAll("[data-parallax]").forEach(card => {
+        const img = card.querySelector(".productMedia img");
+
+        card.addEventListener("mousemove", (e) => {
+          const r = card.getBoundingClientRect();
+          const x = e.clientX - r.left;
+          const y = e.clientY - r.top;
+
+          // 0..1
+          const px = x / r.width;
+          const py = y / r.height;
+
+          // tilt ranges
+          const rotY = (px - 0.5) * 8;  // left/right
+          const rotX = (0.5 - py) * 6;  // up/down
+
+          // image shift
+          const shiftX = clamp((px - 0.5) * 10, -10, 10);
+          const shiftY = clamp((py - 0.5) * 10, -10, 10);
+
+          card.style.setProperty("--mx", `${px * 100}%`);
+          card.style.setProperty("--my", `${py * 100}%`);
+          card.style.transform = `translateY(-8px) scale(1.01) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+
+          if (img) {
+            card.style.setProperty("--px", `${shiftX}px`);
+            card.style.setProperty("--py", `${shiftY}px`);
+          }
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "";
+          card.style.removeProperty("--px");
+          card.style.removeProperty("--py");
+        });
+
+        // Touch cihazlarda parallax olmasın (hover yok)
+        card.addEventListener("touchstart", () => {
+          card.style.transform = "";
+        }, {passive:true});
+      });
+    }
   </script>
 </body>
 </html>
