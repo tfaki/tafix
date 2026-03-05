@@ -28,6 +28,36 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Small overrides for equal app images + badges -->
+  <style>
+    .apps-grid .portfolio-item>img {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .store-badges {
+      margin-top: 12px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .store-badges a {
+      display: inline-flex;
+      align-items: center;
+      line-height: 0;
+    }
+
+    .store-badges img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+  </style>
 </head>
 
 <body class="index-page">
@@ -36,8 +66,6 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">tafix</h1>
       </a>
 
@@ -60,7 +88,6 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero section">
-
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
@@ -75,14 +102,11 @@
           </div>
         </div>
       </div>
-
     </section><!-- /Hero Section -->
 
     <!-- Featured Services Section -->
     <section id="featured-services" class="featured-services section">
-
       <div class="container">
-
         <div class="row gy-4">
 
           <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="100">
@@ -94,7 +118,7 @@
                 creating smart and forward-thinking digital products.
               </p>
             </div>
-          </div><!-- End Feature -->
+          </div>
 
           <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
@@ -106,7 +130,7 @@
                 user experience.
               </p>
             </div>
-          </div><!-- End Feature -->
+          </div>
 
           <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">
@@ -117,26 +141,21 @@
                 delivering reliable mobile experiences across devices and platforms.
               </p>
             </div>
-          </div><!-- End Feature -->
+          </div>
 
         </div>
-
       </div>
-
     </section><!-- /Featured Services Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <span>About Us<br></span>
         <h2>About</h2>
         <p>Mobile-first innovation studio building high-quality apps.</p>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container">
-
         <div class="row gy-4">
           <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
             <img src="assets/img/about.png" class="img-fluid" alt="tafix mobile app development">
@@ -146,30 +165,29 @@
             <h3>We build mobile apps where innovation meets great user experience.</h3>
 
             <p class="fst-italic">
-              At tafix, we focus on mobile-first product development—turning ideas into fast, reliable, and beautifully designed
-              applications.
+              At tafix, we focus on mobile-first product development—turning ideas into fast, reliable, and beautifully
+              designed applications.
             </p>
 
             <ul>
-              <li>
-                <i class="bi bi-check2-all"></i>
-                <span><strong>Mobile-first innovation:</strong> We explore new features and technologies to create smarter app experiences.</span>
+              <li><i class="bi bi-check2-all"></i>
+                <span><strong>Mobile-first innovation:</strong> We explore new features and technologies to create smarter app
+                  experiences.</span>
               </li>
-              <li>
-                <i class="bi bi-check2-all"></i>
-                <span><strong>High UX standards:</strong> We keep interfaces clean, intuitive, and consistent across devices.</span>
+              <li><i class="bi bi-check2-all"></i>
+                <span><strong>High UX standards:</strong> We keep interfaces clean, intuitive, and consistent across
+                  devices.</span>
               </li>
-              <li>
-                <i class="bi bi-check2-all"></i>
-                <span><strong>Performance & quality:</strong> We optimize for speed, stability, and long-term maintainability.</span>
+              <li><i class="bi bi-check2-all"></i>
+                <span><strong>Performance & quality:</strong> We optimize for speed, stability, and long-term
+                  maintainability.</span>
               </li>
-              <li>
-                <i class="bi bi-check2-all"></i>
+              <li><i class="bi bi-check2-all"></i>
                 <span><strong>User-driven improvements:</strong> We continuously iterate based on feedback and real usage.</span>
               </li>
-              <li>
-                <i class="bi bi-check2-all"></i>
-                <span><strong>End-to-end delivery:</strong> From product design to development and release—everything is built with care.</span>
+              <li><i class="bi bi-check2-all"></i>
+                <span><strong>End-to-end delivery:</strong> From product design to development and release—everything is built
+                  with care.</span>
               </li>
             </ul>
 
@@ -179,119 +197,138 @@
             </p>
           </div>
         </div>
-
       </div>
-
     </section><!-- /About Section -->
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <span>Our Apps</span>
         <h2>Our Apps</h2>
         <p>Explore our mobile apps.</p>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container">
-        <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="row gy-4 apps-grid" data-aos="fade-up" data-aos-delay="200">
 
           <!-- App Item 1 -->
           <div class="col-lg-4 col-md-6 portfolio-item">
-            <img src="assets/img/app-1.png" class="img-fluid" alt="App 1">
+            <img src="assets/img/app-1.png" class="img-fluid" alt="Body Temperature Tracker">
             <div class="portfolio-info">
               <h4>Body Temperature Tracker</h4>
-              <a href="assets/img/app-1.png" title="App 1" data-gallery="portfolio-gallery-app"
+
+              <!-- Zoom icon stays (lightbox) -->
+              <a href="assets/img/app-1.png" title="Body Temperature Tracker" data-gallery="portfolio-gallery-app"
                 class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="#" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+
+              <!-- Store badges -->
+              <div class="store-badges">
+                <a href="https://apps.apple.com/app/id6479574335" target="_blank" rel="noopener">
+                  <img alt="Download on the App Store"
+                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.loftymr.bodytemperature" target="_blank"
+                  rel="noopener">
+                  <img alt="Get it on Google Play"
+                    src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png">
+                </a>
+              </div>
             </div>
           </div><!-- End App Item -->
 
           <!-- App Item 2 -->
           <div class="col-lg-4 col-md-6 portfolio-item">
-            <img src="assets/img/app-2.png" class="img-fluid" alt="App 2">
+            <img src="assets/img/app-2.png" class="img-fluid" alt="Glub: Blood Sugar Monitor">
             <div class="portfolio-info">
               <h4>Glub: Blood Sugar Monitor</h4>
-              <a href="assets/img/app-2.png" title="App 2" data-gallery="portfolio-gallery-app"
+
+              <!-- Zoom icon stays (lightbox) -->
+              <a href="assets/img/app-2.png" title="Glub: Blood Sugar Monitor" data-gallery="portfolio-gallery-app"
                 class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="#" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+
+              <!-- Store badge (App Store only) -->
+              <div class="store-badges">
+                <a href="https://apps.apple.com/app/id6755089997" target="_blank" rel="noopener">
+                  <img alt="Download on the App Store"
+                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
+                </a>
+              </div>
             </div>
           </div><!-- End App Item -->
 
           <!-- App Item 3 -->
           <div class="col-lg-4 col-md-6 portfolio-item">
-            <img src="assets/img/app-3.png" class="img-fluid" alt="App 3">
+            <img src="assets/img/app-3.png" class="img-fluid" alt="Kafi: Caffeine, Coffee Tracker">
             <div class="portfolio-info">
               <h4>Kafi: Caffeine, Coffee Tracker</h4>
-              <a href="assets/img/app-3.png" title="App 3" data-gallery="portfolio-gallery-app"
+
+              <!-- Zoom icon stays (lightbox) -->
+              <a href="assets/img/app-3.png" title="Kafi: Caffeine, Coffee Tracker" data-gallery="portfolio-gallery-app"
                 class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="#" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+
+              <!-- Store badge (App Store only) -->
+              <div class="store-badges">
+                <a href="https://apps.apple.com/app/id6742816597" target="_blank" rel="noopener">
+                  <img alt="Download on the App Store"
+                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
+                </a>
+              </div>
             </div>
           </div><!-- End App Item -->
 
         </div>
       </div>
-
     </section><!-- /Portfolio Section -->
 
-    <!-- Contact Section -->
+    <!-- Contact Section (form only) -->
     <section id="contact" class="contact section">
 
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <span>Contact</span>
-    <h2>Contact</h2>
-    <p>Want to send us a feedback?</p>
-  </div><!-- End Section Title -->
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="row justify-content-center">
-
-      <div class="col-lg-8">
-        <form action="forms/contact.php" method="post" class="php-email-form">
-
-          <div class="row gy-4">
-
-            <div class="col-md-6">
-              <label for="name-field" class="pb-2">Your Name</label>
-              <input type="text" name="name" id="name-field" class="form-control" required>
-            </div>
-
-            <div class="col-md-6">
-              <label for="email-field" class="pb-2">Your Email</label>
-              <input type="email" class="form-control" name="email" id="email-field" required>
-            </div>
-
-            <div class="col-md-12">
-              <label for="subject-field" class="pb-2">Subject</label>
-              <input type="text" class="form-control" name="subject" id="subject-field" required>
-            </div>
-
-            <div class="col-md-12">
-              <label for="message-field" class="pb-2">Message</label>
-              <textarea class="form-control" name="message" rows="10" id="message-field" required></textarea>
-            </div>
-
-            <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-
-              <button type="submit">Send Message</button>
-            </div>
-
-          </div>
-
-        </form>
+      <div class="container section-title" data-aos="fade-up">
+        <span>Contact</span>
+        <h2>Contact</h2>
+        <p>Want to send us a feedback?</p>
       </div>
 
-    </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <form action="forms/contact.php" method="post" class="php-email-form">
+              <div class="row gy-4">
 
-  </div>
+                <div class="col-md-6">
+                  <label for="name-field" class="pb-2">Your Name</label>
+                  <input type="text" name="name" id="name-field" class="form-control" required>
+                </div>
 
-</section><!-- /Contact Section -->
+                <div class="col-md-6">
+                  <label for="email-field" class="pb-2">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email-field" required>
+                </div>
+
+                <div class="col-md-12">
+                  <label for="subject-field" class="pb-2">Subject</label>
+                  <input type="text" class="form-control" name="subject" id="subject-field" required>
+                </div>
+
+                <div class="col-md-12">
+                  <label for="message-field" class="pb-2">Message</label>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                  <button type="submit">Send Message</button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Contact Section -->
 
   </main>
 
@@ -308,44 +345,24 @@
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Mobile Design</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Mobile Development</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-4 col-md-12">
+        <div class="col-lg-4 col-md-12 ms-auto">
           <h4>Follow Us</h4>
           <div class="social-links d-flex">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <a href="http://linkedin.com/company/tafixco/" target="_blank" rel="noopener"><i class="bi bi-twitter-x"></i></a>
+            <a href="http://linkedin.com/company/tafixco/" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+            <a href="http://linkedin.com/company/tafixco/" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+            <a href="http://linkedin.com/company/tafixco/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
 
       </div>
     </div>
-
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
