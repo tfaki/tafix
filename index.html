@@ -1,510 +1,510 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tafix</title>
-  <meta name="description" content="Tafix — We build simple, useful apps." />
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>tafix</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
 
-  <style>
-    :root{
-      --max: 1080px;
-      --bg: #0b1220;
-      --border: rgba(255,255,255,.10);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --radius: 22px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      color: var(--text);
-      background:
-        radial-gradient(1100px 600px at 20% 0%, rgba(64,118,255,.40), transparent 60%),
-        radial-gradient(900px 700px at 90% 10%, rgba(140,62,255,.35), transparent 60%),
-        radial-gradient(1000px 700px at 40% 90%, rgba(255,77,152,.20), transparent 55%),
-        var(--bg);
-      overflow-x:hidden;
-    }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:22px 18px}
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    header{
-      position:sticky;top:0;z-index:20;
-      background: rgba(11,18,32,.55);
-      backdrop-filter: blur(16px) saturate(150%);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:14px}
-    .brand img{
-      width:34px;height:34px;border-radius:10px;
-      background: rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.12);
-      object-fit: cover;display:block;
-    }
-    .links{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-    .link{padding:10px 12px;border-radius:14px;color: var(--muted)}
-    .link:hover{background: rgba(255,255,255,.06); color: var(--text);}
-    .btn{padding:10px 14px;border-radius:14px;background: rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14)}
-    .btn:hover{background: rgba(255,255,255,.16);}
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
 
-    /* Base glass card */
-    .card{
-      border:1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    /* HERO */
-    .hero{padding:54px 0 22px}
-    .heroGrid{display:grid;grid-template-columns: 1.15fr .85fr;gap:18px;align-items:stretch}
-    .heroCard{padding:34px;min-height: 320px}
-    .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color: rgba(255,255,255,.70);margin-bottom:12px}
-    h1{margin:0;font-size: 52px;line-height: 1.05;font-weight: 800}
-    .ctaRow{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
-    .ctaPrimary{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:12px 16px;border-radius:16px;
-      background: rgba(64,118,255,.35);
-      border:1px solid rgba(64,118,255,.45);
-    }
-    .ctaPrimary:hover{background: rgba(64,118,255,.45);}
-    .ctaGhost{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:12px 16px;border-radius:16px;
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      color: var(--muted);
-    }
-    .ctaGhost:hover{background: rgba(255,255,255,.12); color: var(--text);}
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
 
-    .visualCard{
-      min-height: 320px;
-      display:flex;align-items:center;justify-content:center;
-      padding:18px;
-      background:
-        radial-gradient(500px 260px at 30% 20%, rgba(64,118,255,.22), transparent 55%),
-        radial-gradient(460px 260px at 80% 40%, rgba(140,62,255,.20), transparent 55%),
-        radial-gradient(520px 260px at 60% 90%, rgba(255,77,152,.14), transparent 55%),
-        rgba(255,255,255,.04);
-    }
-    .visualCard img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      border-radius: 18px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.06);
-      display:block;
-    }
-
-    /* WHO */
-    section{padding:22px 0}
-    .infoCard{padding: 22px;display:grid;gap:10px}
-    .infoTop{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    .pill{
-      font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-      color: rgba(255,255,255,.70);
-      background: rgba(255,255,255,.07);
-      border:1px solid rgba(255,255,255,.10);
-      padding:8px 10px;border-radius: 999px;
-    }
-    .infoHeadline{font-size:34px;font-weight:850;line-height:1.15}
-    .infoText{color: var(--muted);font-size: 16px;line-height: 1.65;max-width: 75ch}
-
-    /* PRODUCTS */
-    .sectionTitle{
-      font-size: 42px;
-      font-weight: 850;
-      margin: 26px 0 14px;
-      text-align:center;
-    }
-
-    /* FULL WIDTH products section */
-    .productsFull{
-      max-width:none;
-      width:100%;
-      padding-left:0;
-      padding-right:0;
-    }
-    .productsInner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:0 18px;
-    }
-
-    .carouselWrap{
-      position:relative;
-      margin-top: 14px;
-      padding: 0 24px; /* daha geniş görünüm */
-    }
-    .carousel{
-      display:flex;gap:16px;
-      overflow-x:auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      padding: 10px 8px 24px;
-      scrollbar-width: none;
-    }
-    .carousel::-webkit-scrollbar{display:none}
-
-    /* Product card hover + parallax base */
-    .productCard{
-      scroll-snap-align: center;
-      flex: 0 0 min(680px, 92vw); /* GENİŞLETİLDİ */
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.06);
-      border-radius: 26px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-
-      transform-style: preserve-3d;
-      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
-      will-change: transform;
-    }
-    .productCard::before{
-      content:"";
-      position:absolute;inset:-1px;
-      background: radial-gradient(600px 220px at var(--mx, 30%) var(--my, 20%), rgba(64,118,255,.20), transparent 55%);
-      opacity: 0;
-      transition: opacity 220ms ease;
-      pointer-events:none;
-    }
-    .productCard:hover{
-      transform: translateY(-8px) scale(1.01);
-      border-color: rgba(255,255,255,.18);
-      box-shadow: 0 22px 70px rgba(0,0,0,.55);
-      background: rgba(255,255,255,.075);
-    }
-    .productCard:hover::before{opacity:1}
-
-    .productMedia{
-      height: 360px;
-      position:relative;
-      background:
-        radial-gradient(520px 260px at 30% 20%, rgba(64,118,255,.18), transparent 55%),
-        radial-gradient(520px 260px at 80% 30%, rgba(140,62,255,.16), transparent 55%),
-        radial-gradient(520px 260px at 60% 90%, rgba(255,77,152,.12), transparent 55%),
-        rgba(255,255,255,.04);
-      overflow:hidden;
-    }
-    .productMedia img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transform: translate3d(0,0,0) scale(1.02);
-      transition: transform 220ms ease;
-      will-change: transform;
-    }
-    .productCard:hover .productMedia img{
-      transform: translate3d(var(--px, 0px), var(--py, 0px), 0) scale(1.06);
-    }
-    .productMedia::after{
-      content:"";
-      position:absolute;left:0;right:0;bottom:0;height:130px;
-      background: linear-gradient(to bottom, rgba(11,18,32,0), rgba(11,18,32,.60));
-      pointer-events:none;
-    }
-
-    .productBody{
-      padding: 18px 18px 18px;
-      display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
-      background: rgba(11,18,32,.35);
-      border-top: 1px solid rgba(255,255,255,.06);
-    }
-    .productName{font-size: 24px;font-weight: 800;margin:0}
-    .productMeta{margin-top:4px;color: var(--muted);font-size: 14px}
-
-    .badgesRow{
-      margin-top: 10px;
-      display:flex;gap:8px;flex-wrap:wrap;
-    }
-    .badge{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;border-radius:999px;
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      color: rgba(255,255,255,.82);
-      font-size: 12px;
-      letter-spacing: .02em;
-    }
-    .dot{
-      width:6px;height:6px;border-radius:99px;
-      background: rgba(255,255,255,.55);
-      display:inline-block;
-    }
-
-    .openIcon{
-      width:42px;height:42px;border-radius:14px;
-      display:grid;place-items:center;
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      transition: transform 180ms ease, background 180ms ease;
-    }
-    .openIcon:hover{background: rgba(255,255,255,.12); transform: translateY(-1px);}
-
-    .navBtn{
-      position:absolute;top:50%;
-      transform: translateY(-50%);
-      width:44px;height:44px;border-radius:16px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(11,18,32,.55);
-      backdrop-filter: blur(10px);
-      color: rgba(255,255,255,.92);
-      display:grid;place-items:center;
-      cursor:pointer;
-      user-select:none;
-      z-index: 5;
-    }
-    .navBtn:hover{background: rgba(11,18,32,.75);}
-    .navPrev{left: 10px}
-    .navNext{right: 10px}
-
-    /* CONTACT + FOOTER */
-    .contactCard{
-      padding: 22px;
-      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
-    }
-    .contactLeft{display:grid;gap:6px}
-    .contactTitle{font-size:18px;font-weight:800;margin:0}
-    .contactText{color:var(--muted);margin:0}
-    footer{margin-top: 34px;border-top: 1px solid rgba(255,255,255,.08);background: rgba(0,0,0,.10)}
-    .footerRow{
-      display:flex;align-items:center;justify-content:space-between;gap:10px;
-      color: var(--muted);
-      flex-wrap:wrap;
-      padding: 18px 0;
-    }
-
-    @media (max-width: 980px){
-      .heroGrid{grid-template-columns:1fr}
-      h1{font-size: 44px}
-      .heroCard,.visualCard{min-height: 280px}
-
-      .productMedia{height: 320px}
-      .carouselWrap{padding: 0 16px;}
-      .productCard{flex: 0 0 min(92vw, 720px);} /* mobilde de geniş */
-      .navPrev{left: 6px}
-      .navNext{right: 6px}
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      .productCard, .productMedia img, .openIcon { transition:none !important; }
-    }
-  </style>
 </head>
 
-<body>
-  <header>
-    <div class="wrap">
-      <div class="nav">
-        <a class="brand" href="#top" aria-label="Tafix home">
-          <img src="logo.png" alt="Tafix logo" onerror="this.style.display='none'" />
-        </a>
+<body class="index-page">
 
-        <div class="links">
-          <a class="link" href="#who">Who we are</a>
-          <a class="link" href="#products">Our products</a>
-          <a class="btn" href="#contact">Contact</a>
-        </div>
-      </div>
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">tafix</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                    class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown 2</a></li>
+              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="#">Dropdown 4</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="index.html#about">Get Started</a>
+
     </div>
   </header>
 
-  <main id="top" class="wrap">
-    <div class="hero">
-      <div class="heroGrid">
-        <div class="card heroCard">
-          <div class="kicker">TAFIX</div>
-          <h1>We build simple,<br/>useful apps.</h1>
-          <div class="ctaRow">
-            <a class="ctaPrimary" href="#products">Explore products →</a>
-            <a class="ctaGhost" href="#who">About us</a>
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+            <h1>Elegant and creative solutions</h1>
+            <p>We are team of talented designers making websites with Bootstrap</p>
+            <div class="d-flex">
+              <a href="#about" class="btn-get-started">Get Started</a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="100">
+            <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- Featured Services Section -->
+    <section id="featured-services" class="featured-services section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-activity icon"></i></div>
+              <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
+              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+              <h4><a href="" class="stretched-link">Sed ut perspici</a></h4>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
+              <h4><a href="" class="stretched-link">Magni Dolores</a></h4>
+              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Featured Services Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span>About Us<br></span>
+        <h2>About</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+          <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/img/about.png" class="img-fluid" alt="">
+            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+          </div>
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
+            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore
+              magna aliqua.
+            </p>
+            <ul>
+              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate
+                  velit.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                  aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
+                  pariatur.</span></li>
+            </ul>
+            <p>
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+            </p>
           </div>
         </div>
 
-        <div class="card visualCard" aria-label="Hero visual">
-          <img src="hero.png" alt="" onerror="this.remove()" />
-        </div>
       </div>
-    </div>
 
-    <section id="who">
-      <div class="card infoCard">
-        <div class="infoTop">
-          <span class="pill">WHO WE ARE</span>
-          <span class="pill" style="opacity:.85">App studio</span>
+    </section><!-- /About Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span>Portfolio</span>
+        <h2>Portfolio</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-app">App</li>
+            <li data-filter=".filter-product">Product</li>
+            <li data-filter=".filter-branding">Branding</li>
+            <li data-filter=".filter-books">Books</li>
+          </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 1</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                <a href="assets/img/portfolio/app-1.jpg" title="App 1" data-gallery="portfolio-gallery-app"
+                  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Product 1</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                <a href="assets/img/portfolio/product-1.jpg" title="Product 1" data-gallery="portfolio-gallery-product"
+                  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Branding 1</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                <a href="assets/img/portfolio/branding-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding"
+                  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Books 1</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                <a href="assets/img/portfolio/books-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-book"
+                  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 2</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                <a href="assets/img/portfolio/app-2.jpg" title="App 2" data-gallery="portfolio-gallery-app"
+                  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Product 2</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                <a href="assets/img/portfolio/product-2.jpg" title="Product 2" data-gallery="portfolio-gallery-product"
+                  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/portfolio/branding-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Branding 2</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                <a href="assets/img/portfolio/branding-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding"
+                  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <img src="assets/img/portfolio/books-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Books 2</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                <a href="assets/img/portfolio/books-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-book"
+                  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 3</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                <a href="assets/img/portfolio/app-3.jpg" title="App 3" data-gallery="portfolio-gallery-app"
+                  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/portfolio/product-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Product 3</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                <a href="assets/img/portfolio/product-3.jpg" title="Product 3" data-gallery="portfolio-gallery-product"
+                  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/portfolio/branding-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Branding 3</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                <a href="assets/img/portfolio/branding-3.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding"
+                  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <img src="assets/img/portfolio/books-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Books 3</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                <a href="assets/img/portfolio/books-3.jpg" title="Branding 3" data-gallery="portfolio-gallery-book"
+                  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div><!-- End Portfolio Container -->
+
         </div>
-        <div class="infoHeadline">We are an app studio that builds amazing products.</div>
-        <div class="infoText">
-          We focus on clean UX, reliability, and practical features that people use every day.
-        </div>
+
       </div>
-    </section>
+
+    </section><!-- /Portfolio Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span>Section Title</span>
+        <h2>Contact</h2>
+        <p>Want to send us a feedback?</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-5">
+
+            <div class="info-wrap">
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h3>Address</h3>
+                  <p>Istanbul, 34000</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h3>Email Us</h3>
+                  <p>contact@tafix.co</p>
+                </div>
+              </div><!-- End Info Item -->
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
+              data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <label for="name-field" class="pb-2">Your Name</label>
+                  <input type="text" name="name" id="name-field" class="form-control" required="">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email-field" class="pb-2">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="subject-field" class="pb-2">Subject</label>
+                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="message-field" class="pb-2">Message</label>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit">Send Message</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
   </main>
 
-  <!-- PRODUCTS full width (wrap dışı) -->
-  <section id="products" class="productsFull">
-    <div class="productsInner">
-      <div class="sectionTitle">Our Products.</div>
+  <footer id="footer" class="footer">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="d-flex align-items-center">
+            <span class="sitename">tafix</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Istanbul,34000</p>
+            <p><strong>Email:</strong> <span>contact@tafix.co</span></p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Mobile Design</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Mobile Development</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <div class="carouselWrap">
-      <div class="navBtn navPrev" id="prevBtn" aria-label="Previous">‹</div>
-      <div class="navBtn navNext" id="nextBtn" aria-label="Next">›</div>
+  </footer>
 
-      <div class="carousel" id="carousel">
-        <article class="productCard" data-parallax>
-          <div class="productMedia">
-            <img src="product-bodytemp.png" alt="Body Temperature Tracker screenshot" onerror="this.remove()"/>
-          </div>
-          <div class="productBody">
-            <div>
-              <h3 class="productName">Body Temperature Tracker</h3>
-              <div class="productMeta">Track temperature, symptoms, notes & export PDFs.</div>
-              <div class="badgesRow">
-                <span class="badge"><span class="dot"></span> iOS</span>
-                <span class="badge"><span class="dot"></span> Android</span>
-              </div>
-            </div>
-            <a class="openIcon" href="#" title="Open" aria-label="Open product link">↗</a>
-          </div>
-        </article>
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
-        <article class="productCard" data-parallax>
-          <div class="productMedia">
-            <img src="product-caffeine.png" alt="Caffeine Tracker screenshot" onerror="this.remove()"/>
-          </div>
-          <div class="productBody">
-            <div>
-              <h3 class="productName">Caffeine Tracker</h3>
-              <div class="productMeta">Log drinks and visualize caffeine intake.</div>
-              <div class="badgesRow">
-                <span class="badge"><span class="dot"></span> iOS</span>
-              </div>
-            </div>
-            <a class="openIcon" href="#" title="Open" aria-label="Open product link">↗</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+  <!-- Preloader -->
+  <div id="preloader"></div>
 
-  <main class="wrap">
-    <section id="contact">
-      <div class="card contactCard">
-        <div class="contactLeft">
-          <p class="contactTitle">Contact us</p>
-          <p class="contactText">Support & business inquiries</p>
-        </div>
-        <a class="ctaPrimary" href="mailto:support@tafix.co">support@tafix.co</a>
-      </div>
-    </section>
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-    <footer>
-      <div class="wrap" style="padding-left:0;padding-right:0">
-        <div class="footerRow">
-          <span>© <span id="y"></span> Tafix</span>
-          <span>Built with care.</span>
-        </div>
-      </div>
-    </footer>
-  </main>
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    // Carousel controls
-    const carousel = document.getElementById("carousel");
-    const nextBtn = document.getElementById("nextBtn");
-    const prevBtn = document.getElementById("prevBtn");
-
-    function scrollByCard(direction) {
-      const card = carousel.querySelector(".productCard");
-      const gap = 16;
-      const amount = (card ? card.getBoundingClientRect().width : 680) + gap;
-      carousel.scrollBy({ left: direction * amount, behavior: "smooth" });
-    }
-    nextBtn.addEventListener("click", () => scrollByCard(1));
-    prevBtn.addEventListener("click", () => scrollByCard(-1));
-
-    // Drag to scroll
-    let isDown = false, startX = 0, scrollLeft = 0;
-    carousel.addEventListener("mousedown", (e) => {
-      isDown = true;
-      carousel.style.cursor = "grabbing";
-      startX = e.pageX - carousel.offsetLeft;
-      scrollLeft = carousel.scrollLeft;
-    });
-    window.addEventListener("mouseup", () => {
-      isDown = false;
-      carousel.style.cursor = "grab";
-    });
-    carousel.addEventListener("mouseleave", () => {
-      isDown = false;
-      carousel.style.cursor = "grab";
-    });
-    carousel.addEventListener("mousemove", (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - carousel.offsetLeft;
-      const walk = (x - startX) * 1.2;
-      carousel.scrollLeft = scrollLeft - walk;
-    });
-    carousel.style.cursor = "grab";
-
-    // Hover parallax (very light)
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
-
-    if (!prefersReduced) {
-      document.querySelectorAll("[data-parallax]").forEach(card => {
-        const img = card.querySelector(".productMedia img");
-
-        card.addEventListener("mousemove", (e) => {
-          const r = card.getBoundingClientRect();
-          const x = e.clientX - r.left;
-          const y = e.clientY - r.top;
-
-          const px = x / r.width;
-          const py = y / r.height;
-
-          const rotY = (px - 0.5) * 8;
-          const rotX = (0.5 - py) * 6;
-
-          const shiftX = clamp((px - 0.5) * 10, -10, 10);
-          const shiftY = clamp((py - 0.5) * 10, -10, 10);
-
-          card.style.setProperty("--mx", `${px * 100}%`);
-          card.style.setProperty("--my", `${py * 100}%`);
-          card.style.transform = `translateY(-8px) scale(1.01) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-
-          if (img) {
-            card.style.setProperty("--px", `${shiftX}px`);
-            card.style.setProperty("--py", `${shiftY}px`);
-          }
-        });
-
-        card.addEventListener("mouseleave", () => {
-          card.style.transform = "";
-          card.style.removeProperty("--px");
-          card.style.removeProperty("--py");
-        });
-
-        card.addEventListener("touchstart", () => {
-          card.style.transform = "";
-        }, {passive:true});
-      });
-    }
-  </script>
 </body>
+
 </html>
